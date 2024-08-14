@@ -1,0 +1,367 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="WebApplication1.main" %>
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets\img\favicon.png">
+
+    <!-- all css here -->
+    <link rel="stylesheet" href="assets\css\bootstrap.min.css">
+    <link rel="stylesheet" href="assets\css\plugin.css">
+    <link rel="stylesheet" href="assets\css\bundle.css">
+    <link rel="stylesheet" href="assets\css\style.css">
+    <link rel="stylesheet" href="assets\css\responsive.css">
+    <script src="assets\js\vendor\modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Add your site or application content here -->
+        <!--pos page start-->
+        <div class="pos_page">
+            <div class="container">
+                <!--pos page inner-->
+                <div class="pos_page_inner">
+                    <!--header area -->
+                    <div class="header_area">
+                        <!--header top-->
+                        <div class="header_top">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-md-6">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="header_links">
+                                        <ul>
+                                            <li><a href="#" title="Contact">Contact</a></li>
+                                            <li><a href="MyWishlist.aspx" title="wishlist">My wishlist</a></li>
+                                            <li><a href="MyAccount.aspx" title="My account">My account</a></li>
+                                            <li><a href="MyCart.aspx" title="My cart">My cart</a></li>
+                                            <li><a href="DonHangCuaToi.aspx" title="My order">My order</a></li>
+                                            <asp:Panel ID="loginPanel" runat="server">
+                                                <li><a href="Login.aspx" title="Login">Login</a></li>
+                                            </asp:Panel>
+                                            <asp:Panel ID="admin" runat="server">
+                                                <li>
+                                                    <a href="Admin.aspx">Admin</a></li>
+                                            </asp:Panel>
+                                            <asp:Panel ID="logoutPanel" runat="server">
+                                                <li>
+                                                    <asp:LinkButton ID="logoutLink" runat="server" OnClick="logoutLink_Click" Text="Logout" /></li>
+                                            </asp:Panel>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="text-align: right; font-size: 15px; padding-right: 20px">
+                            <asp:Label ID="hello" runat="server" Text=""></asp:Label>
+                        </p>
+                        <!--header top end-->
+
+                        <!--header middel-->
+                        <div class="header_middel">
+                            <div class="row align-items-center">
+                                <!--logo start-->
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="logo">
+                                        <a href="index.html">
+                                            <img src="assets\img\logo\logo.jpg.png" alt=""></a>
+                                    </div>
+                                </div>
+                                <!--logo end-->
+                                <div class="col-lg-9 col-md-9">
+                                    <div class="header_right_info">
+                                        <div style="display: flex; align-items: center;">
+                                            <asp:TextBox CssClass="form-control" runat="server" Placeholder="Bạn tìm gì hôm nay..." ID="txtSearch"></asp:TextBox>
+                                            <asp:Button runat="server" ForeColor="White" BackColor="#54b8a6" Width="100px" OnClick="btnSearch_Click" ID="btnSearch" Text="Tìm kiếm"></asp:Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--header middel end-->
+                        <div class="header_bottom">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="main_menu_inner">
+                                        <div class="main_menu d-none d-lg-block">
+                                            <nav>
+                                                <ul>
+                                                    <li class="active">
+                                                              <asp:LinkButton ID="Home" runat="server" OnClick="Home_Click" Text="Home"></asp:LinkButton>
+                                                    </li>
+                                                    <li><a href="#">Shop</a>
+                                                        <div class="mega_menu jewelry">
+                                                            <div class="mega_items jewelry">                            
+                                                                    <asp:LinkButton ID="btnViewAll" style="font-size:18px" runat="server" Text="Tất cả sản phẩm"></asp:LinkButton>
+                                                                <br />
+                                                                    <asp:LinkButton ID="btnViewNew" style="font-size:18px" runat="server" Text="Sản phẩm mới nhất"></asp:LinkButton>
+                                                                <br />
+                                                                    <asp:LinkButton ID="btnViewHot" style="font-size:18px" runat="server" Text="Sản phẩm bán chạy"></asp:LinkButton>
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li><a href="#">pages</a>
+                                                        <div class="mega_menu">
+                                                            <div class="mega_top fix">
+                                                                <div class="mega_items">
+                                                                    <h3><a href="#">Column1</a></h3>
+                                                                    <ul>
+                                                                        <li><a href="#">About Us </a></li>
+                                                                        <li><a href="#">Service </a></li>
+                                                                        <li><a href="#">My account </a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="mega_items">
+                                                                    <h3><a href="#">Column2</a></h3>
+                                                                    <ul>
+                                                                        <li><a href="#">Blog </a></li>
+                                                                        <li><a href="#">Blog  Details </a></li>
+                                                                        <li><a href="#">Blog FullWidth</a></li>
+                                                                        <li><a href="#">Blog  Sidebar</a></li>
+                                                                        <li><a href="#">Frequently Questions</a></li>
+                                                                        <li><a href="#">404</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="mega_items">
+                                                                    <h3><a href="#">Column3</a></h3>
+                                                                    <ul>
+                                                                        <li><a href="#">Contact</a></li>
+                                                                        <li><a href="MyCart.aspx">Cart</a></li>
+                                                                        <li><a href="#">Checkout  </a></li>
+                                                                        <li><a href="#">Wishlist</a></li>
+                                                                        <li><a href="Login.aspx">Login</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li><a href="blog.html">blog</a>
+                                                        <div class="mega_menu jewelry">
+                                                            <div class="mega_items jewelry">
+                                                                <ul>
+                                                                    <li><a href="#">blog details</a></li>
+                                                                    <li><a href="#">blog fullwidth</a></li>
+                                                                    <li><a href="#">blog sidebar</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="#">contact us</a></li>
+
+                                                </ul>
+                                            </nav>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--header end -->
+
+                <!--pos home section-->
+                <div class=" pos_home_section">
+                    <div class="row pos_home">
+                        <div class="col-lg-3 col-md-8 col-12">
+                            <!--sidebar banner-->
+                            <div class="sidebar_widget banner mb-35">
+                                <div class="banner_img mb-35">
+                                    <a href="#">
+                                        <img src="assets\img\banner\bannerside3.jpg" alt=""></a>
+                                </div>
+                                <div class="banner_img">
+                                    <a href="#">
+                                        <img src="assets\img\banner\bannerside2.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <!--sidebar banner end-->
+
+                            <!--categorie menu start-->
+                            <div class="sidebar_widget catrgorie mb-35">
+
+                                <asp:GridView ID="gvCategory" runat="server" AutoGenerateColumns="False" DataKeyNames="category_id" DataSourceID="SqlDataSource1" BorderColor="#54b8a6">
+                                    <Columns>
+                                        <asp:BoundField DataField="category_id" HeaderText="category_id" ReadOnly="True" Visible="false" SortExpression="category_id" />
+                                        <asp:TemplateField HeaderText="Xem theo danh mục" HeaderStyle-Font-Size="20px"  SortExpression="name">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="xemDM" runat="server" Text='<%# Eval("name") %>' CommandName="xemDM" CommandArgument='<%# Eval("category_id") %>'
+                                                    OnCommand="xemDM_Command" Style="color:white; font-size:16px"
+                                                    ></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BaiTapLonConnectionString %>" SelectCommand="SELECT * FROM [Category]"></asp:SqlDataSource>
+                            </div>
+                            <!--categorie menu end-->
+
+                            <!--newsletter block start-->
+                            <div class="sidebar_widget newsletter mb-35">
+                                <div class="block_title">
+                                    <h3>newsletter</h3>
+                                </div>
+                                <form action="#">
+                                    <p>Sign up for your newsletter</p>
+                                    <input placeholder="Your email address" type="text">
+                                    <button type="submit">Subscribe</button>
+                                </form>
+                            </div>
+                            <!--newsletter block end-->
+
+                            <!--sidebar banner-->
+                            <div class="sidebar_widget bottom ">
+                                <div class="banner_img">
+                                    <a href="#">
+                                        <img src="assets\img\banner\bannerside2.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="sidebar_widget bottom ">
+                                <div class="banner_img">
+                                    <a href="#">
+                                        <img src="assets\img\banner\bannerside4.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="sidebar_widget bottom ">
+                                <div class="banner_img">
+                                    <a href="#">
+                                        <img src="assets\img\banner\bannerside5.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <!--sidebar banner end-->
+                        </div>
+
+                        <div class="col-lg-9 col-md-12">
+
+                            <%--Nội dung thay đổi ở đây--%>
+                            <!--new product area start-->
+                            <div class="new_product_area">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                            <!--new product area start-->
+                        </div>
+
+                    </div>
+                </div>
+                <!--pos home section end-->
+            </div>
+            <!--pos page inner end-->
+        </div>
+
+        <!--pos page end-->
+
+        <!--footer area start-->
+        <div class="footer_area">
+            <div class="footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="footer_widget">
+                                <h3>About us</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="footer_widget_contect">
+                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>19 Interpro Road Madison, AL 35758, USA</p>
+
+                                    <p><i class="fa fa-mobile" aria-hidden="true"></i>(012) 234 432 3568</p>
+                                    <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i>Contact@plazathemes.com </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="footer_widget">
+                                <h3>My Account</h3>
+                                <ul>
+                                    <li><a href="#">Your Account</a></li>
+                                    <li><a href="#">My orders</a></li>
+                                    <li><a href="#">My credit slips</a></li>
+                                    <li><a href="#">My addresses</a></li>
+                                    <li><a href="#">Login</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="footer_widget">
+                                <h3>Informations</h3>
+                                <ul>
+                                    <li><a href="#">Specials</a></li>
+                                    <li><a href="#">Our store(s)!</a></li>
+                                    <li><a href="#">My credit slips</a></li>
+                                    <li><a href="#">Terms and conditions</a></li>
+                                    <li><a href="#">About us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="footer_widget">
+                                <h3>extras</h3>
+                                <ul>
+                                    <li><a href="#">Brands</a></li>
+                                    <li><a href="#">Gift Vouchers </a></li>
+                                    <li><a href="#">Affiliates </a></li>
+                                    <li><a href="#">Specials </a></li>
+                                    <li><a href="#">Privacy policy </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="copyright_area">
+                                <ul>
+                                    <li><a href="#">about us </a></li>
+                                    <li><a href="#">Customer Service  </a></li>
+                                    <li><a href="#">Privacy Policy  </a></li>
+                                </ul>
+                                <p>Copyright &copy; 2018 <a href="#">Pos Coron</a>. All rights reserved. </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="footer_social text-right">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a class="pinterest" href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-wifi" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer area end-->
+
+        <!-- all js here -->
+        <script src="assets\js\vendor\jquery-1.12.0.min.js"></script>
+        <script src="assets\js\popper.js"></script>
+        <script src="assets\js\bootstrap.min.js"></script>
+        <script src="assets\js\ajax-mail.js"></script>
+        <script src="assets\js\plugins.js"></script>
+        <script src="assets\js\main.js"></script>
+    </form>
+</body>
+</html>
